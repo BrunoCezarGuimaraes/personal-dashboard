@@ -1,0 +1,42 @@
+/*Embrulho das seções*/
+.app-wrapper{
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    background-color: #e1e2ed;
+}
+
+/*Seção superior*/
+.top-section{
+    background-color: aquamarine;
+    text-align: center;
+
+    padding: 100px 0;
+
+    h1 {
+        font-size: 120px;
+        font-weight: bold;
+        color: #f5f5f5;
+        text-shadow: 0px 1px 7px rgba(black, 0.1);
+
+    }
+
+    h2 {
+        font-size: 28px;
+        color: white;
+        text-shadow: 0px 1px 4px rgba(black, 0.1);
+    }
+}
+
+/*Seção de conteudo*/
+.content-section{
+    background-color: blue;
+    flex-grow: 1;
+}
+
+/*Seção inferior*/
+.bottom-section{
+    background-color: rebeccapurple;
+}
