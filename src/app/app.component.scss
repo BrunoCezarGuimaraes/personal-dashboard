@@ -17,7 +17,7 @@
     //background-color: aquamarine;
     text-align: center;
 
-    padding: 100px 0;
+    padding: 70px 0;
 
     h1 {
         font-size: 120px;
@@ -38,6 +38,8 @@
 .content-section{
     //background-color: blue;
     flex-grow: 1;
+    /*O Min-height é para resolver o tamanho do conteudo com multiplos bookmark's*/
+    min-height: 0;
 }
 
 /*Seção inferior*/

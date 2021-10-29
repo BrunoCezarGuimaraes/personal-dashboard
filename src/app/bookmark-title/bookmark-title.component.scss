@@ -1,0 +1,46 @@
+.bookmark-title {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    
+    gap: 12px;
+
+    background-color: rgba(black, 0.55);
+    border-radius: 5px;
+
+    width: 100px;
+    height: 100px;
+
+    padding: 10px;
+
+    cursor: pointer;
+    transition: all 0.1s;
+
+    &:hover {
+        background: rgba(black, 0.68);
+        backdrop-filter: blur(2px);
+    }
+
+    &:active {
+        background: rgba(black, 0.75);
+        transform: translateY(2px);
+        transition-duration: 0s;
+    }
+}
+
+.bookmark-title img {
+    width: 32px;
+}
+
+.title-text {
+    font-size: 14px;
+    color: rgba(white, 0.85);
+
+    /*Tratamento para caso o texto seja grande demais*/
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
+}
