@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger('routeAnim', [
+    trigger('routeAnimation', [
       /** => * esta dizendo cada parte da animação, ou mudança de fase*/
       transition(':increment', [
 
