@@ -40,6 +40,8 @@
     flex-grow: 1;
     /*O Min-height é para resolver o tamanho do conteudo com multiplos bookmark's*/
     min-height: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 /*Seção inferior*/
