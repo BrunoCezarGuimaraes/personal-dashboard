@@ -6,7 +6,10 @@ import { Note } from './note.model';
 })
 export class NoteService {
 
-  notes: Note[] | undefined;
+  notes: Note[] = [
+    new Note('Test title', 'Test content'),
+    new Note('Oi', 'Teste 2')
+  ]
 
   constructor() { }
 
@@ -16,11 +19,11 @@ export class NoteService {
 
   getNote(id: string) {
     //Retorna True quando o n.id é igual ao id passado
-    return this.notes?.find(n => n.id === id)
+    return this.notes.find(n => n.id === id)
   }
 
   addNote(note: Note) {
-    this.notes?.push(note)
+    this.notes.push(note)
   }
 
   updateNote(id: string, updateFields: Partial<Note>) {
@@ -29,7 +32,8 @@ export class NoteService {
   }
 
   deleteNote(id: string) {
-    const noteIndex = this.notes?.findIndex(n => n.id ===id)
-    if (noteIndex == -1) return this.notes?.splice(noteIndex, 1)
+    const noteIndex = this.notes.findIndex(n => n.id === id)
+    if (noteIndex == -1) return
+    this.notes.splice(noteIndex, 1)
   }
 }
