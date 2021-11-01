@@ -1,12 +1,11 @@
-
 <div class="add-note-wrapper white-bg container">
     <h2 class="bold">New Note</h2>
-    
-    <form>
-        <input class="textbox" type="text" placeholder="Entre com o título da nota...">
-        
-        <textarea class="textarea" placeholder="Entre com o conteúdo da nota..."></textarea>
-    
+
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+        <input class="textbox" ngModel name="title" type="text" placeholder="Entre com o título da nota...">
+
+        <textarea class="textarea" ngModel name="content" placeholder="Entre com o conteúdo da nota..."></textarea>
+
         <div class="btns-container">
             <button class="btn">Criar nota</button>
             <a routerLink="../" class="btn align-end">Cancelar</a>
