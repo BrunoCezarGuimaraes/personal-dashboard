@@ -32,6 +32,10 @@ h2.bold {
     letter-spacing: -2px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     max-width: 850px;
     margin: auto;
@@ -67,6 +71,7 @@ h2.bold {
 .btns-container {
     display: flex;
     margin-top: 20px;
+    gap: 12px;
 
     &.btns-centered {
         justify-content: center;
