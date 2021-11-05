@@ -2,9 +2,16 @@
     <h2 class="bold">New Note</h2>
 
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
-        <input class="textbox" ngModel name="title" type="text" placeholder="Entre com o título da nota...">
+        <div class="form-field">
+            <input class="textbox" ngModel #titleField="ngModel" name="title" type="text" placeholder="Entre com o título da nota..." required minlength="3">
+            <ng-container *ngIf="titleField.invalid">
+                <p *ngIf="titleField.errors">Porfavor digite o titulo da nota com pelo menos 3 caracteres</p>
+            </ng-container>
+        </div>
 
-        <textarea class="textarea" ngModel name="content" placeholder="Entre com o conteúdo da nota..."></textarea>
+        <div class="form-field">
+            <textarea class="textarea" ngModel name="content" placeholder="Entre com o conteúdo da nota..."></textarea>
+        </div>
 
         <div class="btns-container">
             <button class="btn">Criar nota</button>
