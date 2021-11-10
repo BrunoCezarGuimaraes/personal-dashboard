@@ -19,6 +19,7 @@ export class AddTodoComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    console.log(form)
     if (form.invalid)
       return this.showValidationErros = true
     else
