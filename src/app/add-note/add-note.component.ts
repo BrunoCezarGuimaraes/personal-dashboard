@@ -23,13 +23,12 @@ export class AddNoteComponent implements OnInit {
 
     if (form.invalid)
       return this.showValidationErros = true
-    else
-      return this.showValidationErros = false
 
     const note = new Note(form.value.title, form.value.content)
 
     this.noteService.addNote(note)
     this.router.navigateByUrl("/notes")
+    return this.showValidationErros = false
   }
 
 }

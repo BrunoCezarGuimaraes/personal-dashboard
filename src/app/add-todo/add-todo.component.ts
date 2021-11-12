@@ -11,7 +11,7 @@ import { TodoService } from '../shared/todo.service';
 })
 export class AddTodoComponent implements OnInit {
 
-  showValidationErros: boolean | any
+  showValidationErros: boolean | undefined
 
   constructor(private todoService: TodoService, private router: Router) { }
 
@@ -22,12 +22,11 @@ export class AddTodoComponent implements OnInit {
     console.log(form)
     if (form.invalid)
       return this.showValidationErros = true
-    else
-      return this.showValidationErros = false
 
     const todo = new Todo(form.value.text)
     this.todoService.addTodo(todo)
     this.router.navigateByUrl('/todos')
+    return this.showValidationErros = false
   }
 
 }
