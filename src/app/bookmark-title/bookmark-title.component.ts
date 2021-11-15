@@ -12,6 +12,8 @@ export class BookmarkTitleComponent implements OnInit {
 
   titleIconSrc: string | any
 
+  favIconError: boolean | any
+
   constructor() { }
 
   ngOnInit(): void {
