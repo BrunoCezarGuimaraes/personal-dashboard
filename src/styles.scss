@@ -85,6 +85,7 @@ a {
 .white-bg {
     background: rgba(white, 0.85);
     backdrop-filter: blur(3px);
+    box-shadow: 0px 5px 12px rgba(black, 0.18);
 }
 
 .form-field {
