@@ -41,4 +41,11 @@ export class TodosComponent implements OnInit {
   onDeleteClick(todo: Todo) {
     this.todoService.deleteTodo(todo.id)
   }
+
+  /*Essa função é do ngForOf, serve para basicamente
+   so carregar os itens que mudaram ou foram adicionados
+   e não carregar tudo de uma vez a cada atualização*/
+  trackById(index: any, item: Todo) {
+    return item.id
+  }
 }
