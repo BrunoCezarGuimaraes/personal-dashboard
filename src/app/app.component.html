@@ -1,4 +1,13 @@
 <div class="app-wrapper">
+  <!--Background-->
+  <img [src]="bg" *ngFor="let bg of backgrounds.reverse()" class="bg-img" (load)="onBgImgLoad($event)" @bgAnim
+    alt="Imagem do background">
+
+  <!--Troca de background-->
+  <div class="btn change-bg-btn" (click)="changeBGImg()" *ngIf="!loadingBgImg" @fadeAnim>
+    <i class="material-icons">refresh</i>
+  </div>
+
   <!--Seção superior-->
   <div class="top-section">
     <h1>19:00</h1>
@@ -15,5 +24,6 @@
     <app-tabs></app-tabs>
   </div>
 
+  <!--Notificação-->
   <app-notification></app-notification>
 </div>

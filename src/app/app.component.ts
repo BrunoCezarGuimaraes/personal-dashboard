@@ -90,11 +90,35 @@ import { RouterOutlet } from '@angular/router';
         ])
 
       ])
+    ]),
+
+    trigger('bgAnim', [
+      transition(':leave', animate(1000, style({
+        opacity: 0
+      }))
+      ) /*Nota: o animate pode estar tanto dentro de um array como os outros ou fora, como é esse o caso aqui.*/
+    ]),
+
+    trigger('fadeAnim', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(250, style({
+          opacity: 1
+        }))
+      ]),
+
+      transition(':leave', style({ opacity: 0 }))
     ])
   ]
 })
 export class AppComponent {
   title = 'personal-dashboard';
+
+  backgrounds: string[] = [
+    'https://images.unsplash.com/photo-1635233787807-2a4a212ddca3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYzNTM1NDEyMA&ixlib=rb-1.2.1&q=80&w=1920'
+  ];
+
+  loadingBgImg: boolean | any;
 
   /*Metodo para animação da troca de rotas*/
   prepareRoute(outlet: RouterOutlet) {
@@ -102,5 +126,31 @@ export class AppComponent {
       return outlet.activatedRouteData['tabNumber']
     else
       return null
+  }
+
+  async changeBGImg() {
+    this.loadingBgImg = true;
+    /*Pegando a url da imagem, nota o method: HEAD é para so pegar a url sem fazer o download da imagem*/
+    const result = await fetch('https://source.unsplash.com/random/1920x1080', {
+      method: 'HEAD'
+    })
+
+    const alreadyGot = this.backgrounds.includes(result.url)
+    if (alreadyGot) {
+      /*Tem a mesma imagem, entao esta re usando a função*/
+      /*Nota: o return é implicito*/
+      this.changeBGImg()
+    }
+
+    this.backgrounds.push(result.url)
+  }
+
+  onBgImgLoad(imgEvent: Event) {
+    // O Background esta carregando entao remova o antigo do array backgrounds
+    const imgElement = imgEvent.target as HTMLImageElement
+    const src = imgElement.src
+    this.backgrounds = this.backgrounds.filter(b => b === src)
+
+    this.loadingBgImg = false;
   }
 }
