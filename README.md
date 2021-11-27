@@ -33,5 +33,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Notas finais
 
 Essa aplicação foi feita exclusivamente para fins de prática a angular, atraves do tutorial do youtuber: Devstackr
+
 Link do tutorial:
 https://www.youtube.com/watch?v=VBIUe9KaCFc&list=PLIjdNHWULhPR2Tp3fA6Yg8_OY7bG35S5q&index=2&ab_channel=Devstackr
