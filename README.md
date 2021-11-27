@@ -25,6 +25,8 @@ A Aplicação utiliza-se de animação para a movimentação de cada rota, alem 
 
 No canto superior direito possui o botão para mudar o background da aplicação (porem não se salva localmente, e a imagem do background é trazida pela Api: unsplash, que tras imagens randomicas para a aplicação a cada clique).
 
+Atenção, os possiveis erros na aplicação se devem atraves dos cookies do unsplash porem não é o foco do aprendizado dessa aplicação, possivelmente melhoras futuras nessa aplicação sera correção desses erros, porem eles não prejudicam a aplicação.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
