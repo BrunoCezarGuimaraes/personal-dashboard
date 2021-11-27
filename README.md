@@ -2,6 +2,26 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
 
+# Bibliotecas de destaque, utilizadas
+
+uuid = geração de id
+rxjs = states
+materialize = para icons
+
+# Explicação da aplicação
+
+A Aplicação é um Dashboard pessoal, que possui como principais telas bookmark, todo e notes;
+
+-Bookmark, tem como funcionalidade criar marcadores para que salve links de sites podendo apaga-los ou edita-los, ao clicar num dos icones ira ser redirecionado a url marcada.
+
+-Todo, sua funcionalidade é a criação de uma lista de tarefas que se pode editar, excluir e marcar como concluidas.
+
+-Notes, criação de notas para lembretes.
+
+Cada uma delas possui uma das tres funcionalidades possui uma tela de adicionar e editar, cujas as funcionalidades estão na pasta Shared, onde tambem salva localmente os dados de cada uma delas.
+
+A Aplicação utiliza-se de animação para a movimentação de cada rota, alem da interação com os objetos, possuindo tambem uma notificação no canto direito inferior da tela para alertar qualquer atividade feita como por exemplo a exclusão de uma nota.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -10,18 +30,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Notas finais
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Essa aplicação foi feita exclusivamente para fins de prática a angular, atraves do tutorial do youtuber: Devstackr
+Link do tutorial:
+https://www.youtube.com/watch?v=VBIUe9KaCFc&list=PLIjdNHWULhPR2Tp3fA6Yg8_OY7bG35S5q&index=2&ab_channel=Devstackr
