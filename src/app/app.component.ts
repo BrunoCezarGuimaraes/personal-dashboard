@@ -2,6 +2,19 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+const baseStyle = style({
+  //display: 'block',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%' /*Serve para evitar o problema do overflow*/
+})
+
+const basePositionOverflow = style({
+  position: 'relative',
+  overflow: 'hidden'
+})
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,15 +24,10 @@ import { RouterOutlet } from '@angular/router';
       /** => * esta dizendo cada parte da animação, ou mudança de fase*/
       transition(':increment', [
 
+        basePositionOverflow,
+
         query(':enter, :leave', [
-          style({
-            //display: 'block',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%' /*Serve para evitar o problema do overflow*/
-          })
+          baseStyle
         ], { optional: true }),
 
         /*query(':enter', [
@@ -52,22 +60,11 @@ import { RouterOutlet } from '@angular/router';
 
       transition(':decrement', [
 
-        query(':enter, :leave', [
-          style({
-            //display: 'block',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%' /*Serve para evitar o problema do overflow*/
-          })
-        ], { optional: true }),
+        basePositionOverflow,
 
-        /*query(':enter', [
-          style({
-            opacity: 0,
-          })
-        ], { optional: true }),*/
+        query(':enter, :leave', [
+          baseStyle
+        ], { optional: true }),
 
         group([
           query(':leave', [
@@ -89,7 +86,74 @@ import { RouterOutlet } from '@angular/router';
           ], { optional: true })
         ])
 
+      ]),
+
+      /* Animação para a mudança das rotas fora dos Tabs */
+
+      transition('* => secondary', [
+
+        style({
+          position: 'relative',
+          //overflow: 'hidden'
+        }),
+
+        query(':enter, :leave', [
+          baseStyle
+        ], { optional: true }),
+
+        group([
+          query(':leave', [
+            animate('250ms ease-in', style({
+              opacity: 0,
+              transform: 'scale(0.8)'
+            }))
+          ], { optional: true }),
+
+          query(':enter', [
+            style({
+              opacity: 0,
+              transform: 'scale(1.2)'
+            }),
+            animate('250ms 125ms ease-out', style({
+              opacity: 1,
+              transform: 'scale(1)'
+            }))
+          ], { optional: true })
+        ])
+      ]),
+
+      transition('secondary => *', [
+
+        style({
+          position: 'relative',
+          //overflow: 'hidden'
+        }),
+
+        query(':enter, :leave', [
+          baseStyle
+        ], { optional: true }),
+
+        group([
+          query(':leave', [
+            animate('250ms ease-in', style({
+              opacity: 0,
+              transform: 'scale(1.2)'
+            }))
+          ], { optional: true }),
+
+          query(':enter', [
+            style({
+              opacity: 0,
+              transform: 'scale(0.8)'
+            }),
+            animate('250ms 125ms ease-out', style({
+              opacity: 1,
+              transform: 'scale(1)'
+            }))
+          ], { optional: true })
+        ])
       ])
+
     ]),
 
     trigger('bgAnim', [
@@ -122,10 +186,11 @@ export class AppComponent {
 
   /*Metodo para animação da troca de rotas*/
   prepareRoute(outlet: RouterOutlet) {
-    if (outlet.isActivated)
-      return outlet.activatedRouteData['tabNumber']
-    else
-      return null
+    if (outlet.isActivated) {
+      const tabNumber = outlet.activatedRouteData['tabNumber']
+      if (!tabNumber) return 'secondary'
+      return tabNumber
+    }
   }
 
   async changeBGImg() {
