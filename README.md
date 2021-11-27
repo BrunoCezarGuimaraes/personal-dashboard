@@ -7,8 +7,11 @@ Link da aplicação: https://personal-dashboard-beta.vercel.app/
 # Bibliotecas, Apis de destaque, utilizadas
 
 uuid = geração de id
+
 rxjs = states
+
 materialize = para icons
+
 unsplash = imagens de background randomicas
 
 # Explicação da aplicação
