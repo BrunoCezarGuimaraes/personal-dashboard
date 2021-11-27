@@ -23,7 +23,7 @@ Cada uma delas possui uma das tres funcionalidades possui uma tela de adicionar 
 
 A Aplicação utiliza-se de animação para a movimentação de cada rota, alem da interação com os objetos, possuindo tambem uma notificação no canto direito inferior da tela para alertar qualquer atividade feita como por exemplo a exclusão de uma nota.
 
-No canto superior direito possui o botão para mudar o background da aplicação (porem não se salva localmente, e a imagem do background é trazida pela Api: unsplash, que tras imagens randomicas para a aplicação a cada clique)
+No canto superior direito possui o botão para mudar o background da aplicação (porem não se salva localmente, e a imagem do background é trazida pela Api: unsplash, que tras imagens randomicas para a aplicação a cada clique).
 
 ## Development server
 
