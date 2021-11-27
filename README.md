@@ -13,7 +13,7 @@ unsplash = imagens de background randomicas
 
 # Explicação da aplicação
 
-A Aplicação é um Dashboard pessoal, que possui como principais telas bookmark, todo e notes;
+A Aplicação é um Dashboard pessoal para desktop, que possui como principais telas bookmark, todo e notes;
 
 -Bookmark, tem como funcionalidade criar marcadores para que salve links de sites podendo apaga-los ou edita-los, ao clicar num dos icones ira ser redirecionado a url marcada.
 
@@ -43,3 +43,8 @@ Essa aplicação foi feita exclusivamente para fins de prática a angular, atrav
 
 Link do tutorial:
 https://www.youtube.com/watch?v=VBIUe9KaCFc&list=PLIjdNHWULhPR2Tp3fA6Yg8_OY7bG35S5q&index=2&ab_channel=Devstackr
+
+## Imagem da aplicação
+
+![personal dash board](https://user-images.githubusercontent.com/22208015/143701060-f4e3bfb4-fe04-47e5-9232-e0b06af3c2e3.jpg)
+
