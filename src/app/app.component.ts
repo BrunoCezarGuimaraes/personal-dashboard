@@ -1,6 +1,8 @@
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Observable, timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const baseStyle = style({
   //display: 'block',
@@ -175,7 +177,7 @@ const basePositionOverflow = style({
     ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'personal-dashboard';
 
   backgrounds: string[] = [
@@ -183,6 +185,17 @@ export class AppComponent {
   ];
 
   loadingBgImg: boolean | any;
+
+  dateTime: Observable<Date> | any;
+
+  ngOnInit() {
+    /*Nota: esta subscrevendo sempre que tenha uma mudança no pipe, nesse caso Hora e Minuto*/
+    this.dateTime = timer(0, 1000).pipe(
+      map(() => {
+        return new Date()
+      })
+    )
+  }
 
   /*Metodo para animação da troca de rotas*/
   prepareRoute(outlet: RouterOutlet) {

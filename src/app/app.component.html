@@ -10,8 +10,8 @@
 
   <!--Seção superior-->
   <div class="top-section">
-    <h1>19:00</h1>
-    <h2>25 de outubro de 2021</h2>
+    <h1>{{ dateTime | async | date: 'HH:mm' }}</h1>
+    <h2>{{ dateTime | async | date: 'dd/MM/yyy'}}</h2>
   </div>
 
   <!--Seção de conteudo-->
